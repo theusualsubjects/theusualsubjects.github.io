@@ -10,7 +10,7 @@
 // ============================================================
 
 const SITE_CONFIG = {
-  title: "Your Name",          // ← Change to your name or blog name
+  title: "Your Names",          // ← Change to your name or blog name
   tagline: "Photography",      // ← Change to your tagline
   about: "Stories told through a lens.",  // ← Short bio
   instagram: "",               // ← Your Instagram handle (or leave empty)
