@@ -21,7 +21,7 @@ const POSTS = [
 
   // ── SAMPLE POST 3 ──────────────────────────────────────────
   {
-    id: 3,
+    id: 1,
     title: "Golden Hour in the Hills",
     date: "2024-03-15",
     caption: "There's a brief window each evening when the light turns everything to gold. I chased it for weeks before catching this moment.",
@@ -47,7 +47,7 @@ const POSTS = [
     tags: ["landscape", "light"],
   },
   {
-    id: 3,
+    id: 4,
     title: "Golden Hour in the Hills",
     date: "2024-03-15",
     caption: "There's a brief window each evening when the light turns everything to gold. I chased it for weeks before catching this moment.",
@@ -55,7 +55,7 @@ const POSTS = [
     tags: ["landscape", "light"],
   },
   {
-    id: 3,
+    id: 5,
     title: "Golden Hour in the Hills",
     date: "2024-03-15",
     caption: "There's a brief window each evening when the light turns everything to gold. I chased it for weeks before catching this moment.",
@@ -63,7 +63,7 @@ const POSTS = [
     tags: ["landscape", "light"],
   },
   {
-    id: 3,
+    id: 6,
     title: "Golden Hour in the Hills",
     date: "2024-03-15",
     caption: "There's a brief window each evening when the light turns everything to gold. I chased it for weeks before catching this moment.",
@@ -71,7 +71,7 @@ const POSTS = [
     tags: ["landscape", "light"],
   },
   {
-    id: 3,
+    id: 7,
     title: "Golden Hour in the Hills",
     date: "2024-03-15",
     caption: "There's a brief window each evening when the light turns everything to gold. I chased it for weeks before catching this moment.",
@@ -79,7 +79,7 @@ const POSTS = [
     tags: ["landscape", "light"],
   },
   {
-    id: 3,
+    id: 8,
     title: "Golden Hour in the Hills",
     date: "2024-03-15",
     caption: "There's a brief window each evening when the light turns everything to gold. I chased it for weeks before catching this moment.",
@@ -88,7 +88,7 @@ const POSTS = [
   },
   // ── SAMPLE POST 1 ──────────────────────────────────────────
   {
-    id: 1,
+    id: 9,
     title: "First Light",
     date: "2024-01-10",
     caption: "Woke up at 4am to be there before sunrise. The cold was brutal, but the stillness of the world before it wakes — that is everything.",
