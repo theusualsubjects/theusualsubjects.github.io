@@ -25,7 +25,7 @@ const POSTS = [
     title: "Golden Hour in the Hills",
     date: "2024-03-15",
     caption: "There's a brief window each evening when the light turns everything to gold. I chased it for weeks before catching this moment.",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/v1781461726/IMG_0584_wh7bwb.jpg",
     tags: ["landscape", "light"],
   },
 
