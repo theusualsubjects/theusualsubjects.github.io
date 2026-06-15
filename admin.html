@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin — Add Photos</title>
+  <style>
+    :root {
+      --bg:#f5f5f3; --card:#fff; --border:#e2e1dd;
+      --text:#1a1a1a; --mid:#6b6b6b; --soft:#9e9e9e;
+      --accent:#1a1a1a; --green:#2d6a2d; --green-bg:#f0faf0;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{font-size:62.5%;}
+    body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);font-size:1.5rem;line-height:1.6;}
+    a{color:inherit;}
+
+    .topbar{background:#1a1a1a;color:#fff;padding:1.2rem 2.4rem;display:flex;align-items:center;justify-content:space-between;}
+    .topbar-title{font-size:1.4rem;font-weight:700;letter-spacing:0.02em;}
+    .topbar-back{font-size:1.2rem;color:rgba(255,255,255,0.55);text-decoration:none;}
+    .topbar-back:hover{color:#fff;}
+
+    .page{max-width:900px;margin:0 auto;padding:3.2rem 2rem 6rem;}
+    h1{font-size:2.4rem;font-weight:700;margin-bottom:.5rem;}
+    .subtitle{color:var(--mid);font-size:1.4rem;margin-bottom:3rem;}
+
+    /* cloudinary instructions */
+    .instruction-box{background:#fffbf0;border:1px solid #f0d070;border-radius:8px;padding:2rem 2.4rem;margin-bottom:3rem;}
+    .instruction-box h2{font-size:1.5rem;font-weight:700;margin-bottom:1rem;}
+    .instruction-box ol{padding-left:2rem;}
+    .instruction-box li{font-size:1.35rem;margin-bottom:.6rem;color:var(--mid);}
+    .instruction-box li strong{color:var(--text);}
+    .instruction-box code{background:#f0d07044;padding:.1rem .4rem;border-radius:3px;font-size:1.2rem;}
+
+    /* photo rows */
+    .section-label{font-size:1.1rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--soft);margin-bottom:1.2rem;}
+    .photo-list{display:flex;flex-direction:column;gap:1.2rem;margin-bottom:2rem;}
+
+    .photo-row{
+      background:var(--card);border:1px solid var(--border);border-radius:8px;
+      padding:1.6rem 2rem;display:grid;
+      grid-template-columns:120px 1fr 1fr 160px 36px;
+      gap:1.2rem;align-items:center;
+    }
+    .photo-row-preview{width:120px;height:80px;object-fit:cover;border-radius:4px;background:var(--bg);}
+    .photo-row-preview.empty{display:flex;align-items:center;justify-content:center;color:var(--soft);font-size:1.2rem;}
+
+    label.field-label{font-size:1.15rem;font-weight:600;display:block;margin-bottom:.3rem;color:var(--mid);}
+    input,select,textarea{
+      width:100%;border:1px solid var(--border);border-radius:5px;
+      padding:.7rem 1rem;font-size:1.35rem;background:#fafaf8;
+      color:var(--text);font-family:inherit;
+      transition:border-color .2s;
+    }
+    input:focus,select:focus,textarea:focus{outline:none;border-color:#999;}
+    textarea{resize:vertical;min-height:60px;}
+
+    .field-group{display:flex;flex-direction:column;}
+
+    .btn-remove{
+      background:none;border:1px solid var(--border);border-radius:5px;
+      color:var(--soft);font-size:1.6rem;cursor:pointer;
+      width:36px;height:36px;display:flex;align-items:center;justify-content:center;
+      transition:color .2s,border-color .2s;
+      align-self:center;
+    }
+    .btn-remove:hover{color:#c0392b;border-color:#c0392b;}
+
+    .add-row-btn{
+      background:none;border:2px dashed var(--border);border-radius:8px;
+      padding:1.4rem;width:100%;font-size:1.4rem;color:var(--mid);
+      cursor:pointer;transition:border-color .2s,color .2s;
+    }
+    .add-row-btn:hover{border-color:#999;color:var(--text);}
+
+    /* generate */
+    .generate-section{margin-top:3rem;}
+    .date-bar{display:flex;gap:1.2rem;align-items:center;margin-bottom:1.6rem;flex-wrap:wrap;}
+    .date-bar input{max-width:200px;}
+    .date-bar select{max-width:220px;}
+
+    .btn-generate{
+      background:var(--accent);color:#fff;border:none;border-radius:6px;
+      padding:1.1rem 2.4rem;font-size:1.4rem;font-weight:700;cursor:pointer;
+      transition:opacity .2s;
+    }
+    .btn-generate:hover{opacity:.85;}
+
+    /* output */
+    .output-section{margin-top:2.4rem;display:none;}
+    .output-section.visible{display:block;}
+    .output-label{font-size:1.2rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin-bottom:.8rem;}
+    .output-box{
+      background:#1a1a1a;color:#e0e0e0;border-radius:8px;
+      padding:2rem;font-family:'Courier New',monospace;font-size:1.25rem;
+      line-height:1.7;white-space:pre;overflow-x:auto;
+      max-height:420px;overflow-y:auto;
+    }
+    .copy-btn{
+      margin-top:1rem;background:var(--green-bg);border:1px solid #a8d5a2;
+      color:var(--green);border-radius:6px;padding:.8rem 1.8rem;
+      font-size:1.3rem;font-weight:700;cursor:pointer;transition:background .2s;
+    }
+    .copy-btn:hover{background:#d8f0d8;}
+    .copy-btn.copied{background:#d8f0d8;color:#1a4a1a;}
+
+    .instruction-final{
+      background:var(--green-bg);border:1px solid #a8d5a2;border-radius:8px;
+      padding:1.6rem 2rem;margin-top:2rem;font-size:1.35rem;color:#2d5a2d;
+    }
+    .instruction-final ol{padding-left:2rem;}
+    .instruction-final li{margin-bottom:.5rem;}
+
+    @media(max-width:700px){
+      .photo-row{grid-template-columns:80px 1fr;grid-template-rows:auto auto auto auto;gap:.8rem;}
+      .photo-row-preview{width:80px;height:55px;}
+      .btn-remove{grid-column:2;justify-self:end;margin-top:-.4rem;}
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-title">📷 Photo Upload Tool</span>
+  <a class="topbar-back" href="index.html">← Back to site</a>
+</div>
+
+<div class="page">
+  <h1>Add New Photos</h1>
+  <p class="subtitle">Fill in the details below, generate the code, and paste it into posts.js on GitHub. Done!</p>
+
+  <!-- CLOUDINARY INSTRUCTIONS -->
+  <div class="instruction-box">
+    <h2>Step 1 — Upload photos to Cloudinary first</h2>
+    <ol>
+      <li>Go to <strong>cloudinary.com</strong> and log in</li>
+      <li>Click <strong>Media Library → Upload</strong> and select your photos</li>
+      <li>For each photo, click it → copy the URL</li>
+      <li>Optional but recommended: add <code>q_auto,f_auto/</code> after <code>/upload/</code> in the URL for faster loading</li>
+      <li>Then come back here and paste each URL below</li>
+    </ol>
+  </div>
+
+  <!-- PHOTO ROWS -->
+  <div class="section-label">Step 2 — Fill in your photos</div>
+  <div class="photo-list" id="photo-list"></div>
+  <button class="add-row-btn" id="add-row-btn">+ Add another photo</button>
+
+  <!-- GENERATE -->
+  <div class="generate-section">
+    <div class="section-label" style="margin-top:2.4rem;">Step 3 — Set date & theme</div>
+    <div class="date-bar">
+      <div>
+        <label class="field-label">Date for all these photos</label>
+        <input type="date" id="bulk-date">
+      </div>
+      <div>
+        <label class="field-label">Theme for all these photos</label>
+        <select id="bulk-theme">
+          <option value="">— pick a theme —</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn-generate" id="generate-btn">Generate Code →</button>
+  </div>
+
+  <!-- OUTPUT -->
+  <div class="output-section" id="output-section">
+    <div class="output-label">Step 4 — Copy this code</div>
+    <div class="output-box" id="output-box"></div>
+    <button class="copy-btn" id="copy-btn">Copy to clipboard</button>
+
+    <div class="instruction-final">
+      <strong>Step 5 — Paste into GitHub:</strong>
+      <ol>
+        <li>Go to your GitHub repository</li>
+        <li>Click on <strong>posts.js</strong></li>
+        <li>Click the <strong>pencil icon ✏️</strong></li>
+        <li>Find the line <code>const POSTS = [</code></li>
+        <li>Click right after the <code>[</code> and press Enter</li>
+        <li>Paste the copied code there</li>
+        <li>Scroll down → click <strong>Commit changes</strong></li>
+        <li>Wait 1 minute → refresh your site ✅</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<script src="posts.js"></script>
+<script>
+// ── BOOT ──────────────────────────────────────────────────
+let rowCount = 0;
+const list = document.getElementById('photo-list');
+const themeSelect = document.getElementById('bulk-theme');
+
+// Set today's date as default
+document.getElementById('bulk-date').value = new Date().toISOString().split('T')[0];
+
+// Populate theme dropdown from posts.js
+THEMES.forEach(t => {
+  const o = document.createElement('option');
+  o.value = t.id; o.textContent = t.label;
+  themeSelect.appendChild(o);
+});
+
+// Add first 3 empty rows by default
+addRow(); addRow(); addRow();
+
+document.getElementById('add-row-btn').addEventListener('click', addRow);
+document.getElementById('generate-btn').addEventListener('click', generate);
+document.getElementById('copy-btn').addEventListener('click', copyOutput);
+
+// ── ADD ROW ───────────────────────────────────────────────
+function addRow() {
+  rowCount++;
+  const id = rowCount;
+  const row = document.createElement('div');
+  row.className = 'photo-row';
+  row.id = 'row-' + id;
+  row.innerHTML = `
+    <div>
+      <img class="photo-row-preview empty" id="preview-${id}" src="" alt="preview" onerror="this.src=''" style="display:none">
+      <div class="photo-row-preview empty" id="placeholder-${id}" style="font-size:1.1rem;color:#bbb;">Photo ${id}</div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Cloudinary URL *</label>
+      <input type="url" id="url-${id}" placeholder="https://res.cloudinary.com/..." oninput="previewImg(${id})">
+    </div>
+    <div class="field-group">
+      <label class="field-label">Title</label>
+      <input type="text" id="title-${id}" placeholder="e.g. Monsoon Evening">
+      <label class="field-label" style="margin-top:.8rem;">Caption (optional)</label>
+      <textarea id="caption-${id}" placeholder="A short story about this photo..."></textarea>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Override date (optional)</label>
+      <input type="date" id="date-${id}">
+      <label class="field-label" style="margin-top:.8rem;">Override theme (optional)</label>
+      <select id="theme-${id}">
+        <option value="">Use bulk theme</option>
+        ${THEMES.map(t=>`<option value="${t.id}">${t.label}</option>`).join('')}
+      </select>
+    </div>
+    <button class="btn-remove" onclick="removeRow(${id})" title="Remove">×</button>
+  `;
+  list.appendChild(row);
+}
+
+function removeRow(id) {
+  const row = document.getElementById('row-' + id);
+  if (row) row.remove();
+}
+
+function previewImg(id) {
+  const url = document.getElementById('url-' + id).value.trim();
+  const img = document.getElementById('preview-' + id);
+  const ph = document.getElementById('placeholder-' + id);
+  if (url) {
+    img.src = url;
+    img.style.display = 'block';
+    ph.style.display = 'none';
+  } else {
+    img.style.display = 'none';
+    ph.style.display = 'flex';
+  }
+}
+
+// ── GENERATE ──────────────────────────────────────────────
+function generate() {
+  const bulkDate = document.getElementById('bulk-date').value;
+  const bulkTheme = document.getElementById('bulk-theme').value;
+  const rows = list.querySelectorAll('.photo-row');
+
+  // Find the highest existing id in POSTS
+  let maxId = POSTS.reduce((m, p) => Math.max(m, p.id||0), 0);
+
+  const blocks = [];
+  let hasUrl = false;
+
+  rows.forEach(row => {
+    const rowId = row.id.replace('row-', '');
+    const url = document.getElementById('url-' + rowId).value.trim();
+    if (!url) return;
+    hasUrl = true;
+
+    maxId++;
+    const title = document.getElementById('title-' + rowId).value.trim() || 'Untitled';
+    const caption = document.getElementById('caption-' + rowId).value.trim();
+    const date = document.getElementById('date-' + rowId).value || bulkDate;
+    const theme = document.getElementById('theme-' + rowId).value || bulkTheme;
+
+    let block = `  {\n`;
+    block += `    id: ${maxId},\n`;
+    block += `    title: "${escJs(title)}",\n`;
+    block += `    date: "${date}",\n`;
+    if (caption) block += `    caption: "${escJs(caption)}",\n`;
+    block += `    image: "${url}",\n`;
+    if (theme) block += `    theme: "${theme}",\n`;
+    block += `  },`;
+    blocks.push(block);
+  });
+
+  if (!hasUrl) {
+    alert('Please paste at least one Cloudinary URL.');
+    return;
+  }
+
+  const output = blocks.join('\n\n');
+  document.getElementById('output-box').textContent = output;
+  document.getElementById('output-section').classList.add('visible');
+  document.getElementById('output-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ── COPY ──────────────────────────────────────────────────
+function copyOutput() {
+  const text = document.getElementById('output-box').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = '✓ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy to clipboard'; btn.classList.remove('copied'); }, 2400);
+  });
+}
+
+function escJs(s) { return s.replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n/g,'\\n'); }
+</script>
+</body>
+</html>
