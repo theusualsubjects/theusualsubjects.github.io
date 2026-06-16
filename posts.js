@@ -150,5 +150,5 @@ const POSTS = [
     caption: "with my boo",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630388/DSC_0722_d5picc.jpg",
     theme: "examplea",
-  }
+  },
 ];
