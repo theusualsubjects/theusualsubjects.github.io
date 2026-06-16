@@ -103,5 +103,52 @@ const POSTS = [
     image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800",
     theme: "examplea",
   },
+  {
+    id: 10,
+    title: "Temple1",
+    date: "2026-06-16",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630394/DSC_0748_wqmilk.jpg",
+    theme: "examplea",
+  },
 
+  {
+    id: 11,
+    title: "Buddha",
+    date: "2026-06-16",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630389/DSC_0702_ynqeqa.jpg",
+    theme: "exampleb",
+  },
+
+  {
+    id: 12,
+    title: "osaka",
+    date: "2026-06-16",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630389/DSC_0751_u8hq5k.jpg",
+    theme: "examplec",
+  },
+
+  {
+    id: 13,
+    title: "palace",
+    date: "2026-06-16",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630388/DSC_0721_mmyyse.jpg",
+    theme: "examplec",
+  },
+
+  {
+    id: 14,
+    title: "fuji lake",
+    date: "2026-06-16",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630386/DSC_0619_gtcpxa.jpg",
+    theme: "exampled",
+  },
+
+  {
+    id: 15,
+    title: "palace",
+    date: "2026-06-16",
+    caption: "with my boo",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630388/DSC_0722_d5picc.jpg",
+    theme: "examplea",
+  }
 ];
