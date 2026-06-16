@@ -96,7 +96,7 @@ const POSTS = [
   },
   
   {
-    id: 15,
+    id: 9,
     title: "palace",
     date: "2026-06-16",
     caption: "with my boo",
