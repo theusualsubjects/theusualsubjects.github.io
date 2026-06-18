@@ -7,7 +7,9 @@ const SITE_CONFIG = {
   tagline: "Photography",
   about: "Stories told through a lens.",
   instagram: "angie.vish",
-  twitter: "",
+  instagram: "the.usual.subjects"
+  wordpress: "https://thefierynavigator.wordpress.com",   // full URL, e.g. "https://yourname.wordpress.com"
+  twitter: "angievish",
   facebook: "",
   email: "",
 };
@@ -18,10 +20,12 @@ const SITE_CONFIG = {
 // ============================================================
 
 const THEMES = [
-  { id: "examplea", label: "Example A" },
-  { id: "exampleb", label: "Example B" },
-  { id: "examplec", label: "Example C" },
-  { id: "exampled", label: "Example D" },
+  { id: "people", label: "People" },
+  { id: "wildlife", label: "Wildlife" },
+  { id: "city", label: "City" },
+  { id: "nature", label: "Nature" },
+  { id: "artefacts", label: "Artefacts" },
+  { id: "structures", label: "Structures" },
 ];
 
 // ============================================================
@@ -40,7 +44,7 @@ const POSTS = [
     date: "2024-03-15",
     caption: "",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781631410/DSC_0807_tj93qs.jpg",
-    theme: "examplea",
+    theme: "artefacts",
   },
   {
     id: 2,
@@ -48,14 +52,14 @@ const POSTS = [
     date: "2024-02-28",
     caption: "",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781631410/DSC_0802_lh07p0.jpg0",
-    theme: "exampleb",
+    theme: "artefacts",
   },
     {
     id: 3,
     title: "fuji",
     date: "2026-06-16",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630278/DSC_0603_ky7urm.jpg",
-    theme: "examplea",
+    theme: "nature",
   },
 
   {
@@ -64,7 +68,7 @@ const POSTS = [
     date: "2026-06-16",
     caption: "heloo this is favourite car",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630259/DSC_0462_u9fwed.jpg",
-    theme: "exampleb",
+    theme: "city",
   },
 
   {
@@ -72,14 +76,14 @@ const POSTS = [
     title: "temple 3",
     date: "2026-06-16",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630388/DSC_0715_nh9ecc.jpg",
-    theme: "exampleb",
+    theme: "structures",
   },
     {
     id: 6,
     title: "deer",
     date: "2026-06-16",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781631410/DSC_0774_pkxtkl.jpg",
-    theme: "examplec",
+    theme: "wildlife",
   },
 
   {
@@ -87,7 +91,7 @@ const POSTS = [
     title: "car2",
     date: "2026-06-16",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781631411/WhatsApp_Image_2026-05-05_at_12.27.11_l1fevx.jpg",
-    theme: "examplec",
+    theme: "city",
   },
 
   {
@@ -95,7 +99,7 @@ const POSTS = [
     title: "lady",
     date: "2026-06-16",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781631410/DSC_0841_whhdbu.jpg",
-    theme: "examplec",
+    theme: "people",
   },
   
   {
@@ -104,14 +108,14 @@ const POSTS = [
     date: "2026-06-16",
     caption: "with my boo",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630388/DSC_0722_d5picc.jpg",
-    theme: "examplea",
+    theme: "structures",
   },
   {
     id: 10,
     title: "Temple1",
     date: "2026-06-16",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630394/DSC_0748_wqmilk.jpg",
-    theme: "examplea",
+    theme: "structures",
   },
 
   {
@@ -119,7 +123,7 @@ const POSTS = [
     title: "Buddha",
     date: "2026-06-16",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630389/DSC_0702_ynqeqa.jpg",
-    theme: "exampleb",
+    theme: "artefacts",
   },
 
   {
@@ -127,7 +131,7 @@ const POSTS = [
     title: "osaka",
     date: "2026-06-16",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630389/DSC_0751_u8hq5k.jpg",
-    theme: "examplec",
+    theme: "city",
   },
 
   {
@@ -135,15 +139,15 @@ const POSTS = [
     title: "palace",
     date: "2026-06-16",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630388/DSC_0721_mmyyse.jpg",
-    theme: "examplec",
+    theme: "structures",
   },
 
   {
     id: 14,
-    title: "fuji lake",
+    title: "Fishing",
     date: "2026-06-16",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630386/DSC_0619_gtcpxa.jpg",
-    theme: "exampled",
+    theme: "people",
   },
 
 ];
