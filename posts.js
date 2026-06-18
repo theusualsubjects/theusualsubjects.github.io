@@ -6,7 +6,7 @@ const SITE_CONFIG = {
   title: "The Usual Subjects",
   tagline: "Photography",
   about: "Stories told through a lens.",
-  instagram: "",
+  instagram: "angie.vish",
   twitter: "",
   facebook: "",
   email: "",
