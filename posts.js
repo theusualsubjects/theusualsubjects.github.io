@@ -36,18 +36,18 @@ const POSTS = [
 
   {
     id: 1,
-    title: "Golden Hour in the Hills",
+    title: "Demigod",
     date: "2024-03-15",
-    caption: "There's a brief window each evening when the light turns everything to gold. I chased it for weeks before catching this moment.",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+    caption: "",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781631410/DSC_0807_tj93qs.jpg",
     theme: "examplea",
   },
   {
     id: 2,
-    title: "Street Fragment",
+    title: "Buddha",
     date: "2024-02-28",
-    caption: "The city reveals itself in pieces — a shadow, a reflection, a fleeting expression. This corner had been waiting to be seen.",
-    image: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800",
+    caption: "",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781631410/DSC_0802_lh07p0.jpg0",
     theme: "exampleb",
   },
     {
