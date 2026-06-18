@@ -51,7 +51,7 @@ const POSTS = [
     title: "Buddha",
     date: "2024-02-28",
     caption: "",
-    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781631410/DSC_0802_lh07p0.jpg0",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781631410/DSC_0802_lh07p0.jpg",
     theme: "artefacts",
   },
     {
