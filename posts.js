@@ -6,7 +6,7 @@ const SITE_CONFIG = {
   title: "The Usual Subjects",
   tagline: "Photography",
   about: "Stories told through a lens.",
-  instagram: "angie.vish",
+  instagram: "",
   twitter: "",
   facebook: "",
   email: "",
@@ -25,7 +25,10 @@ const THEMES = [
 ];
 
 // ============================================================
-//  POSTS — most recent first
+//  POSTS — keep adding new entries right after the "[" below
+//  (that's still the easiest spot to paste into on GitHub).
+//  On the live site they now display oldest → newest,
+//  top → bottom, so new photos appear below the older ones.
 //  Fields: id, title, date, caption, image, theme
 // ============================================================
 
@@ -143,5 +146,4 @@ const POSTS = [
     theme: "exampled",
   },
 
-  
 ];
