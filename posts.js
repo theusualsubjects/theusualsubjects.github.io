@@ -7,7 +7,7 @@ const SITE_CONFIG = {
   tagline: "Photography",
   about: "Stories told through a lens.",
   instagram: "angie.vish",
-  instagram: "the.usual.subjects"
+  instagram: "the.usual.subjects",
   wordpress: "https://thefierynavigator.wordpress.com",   // full URL, e.g. "https://yourname.wordpress.com"
   twitter: "angievish",
   facebook: "",
