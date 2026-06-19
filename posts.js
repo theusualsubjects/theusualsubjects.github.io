@@ -26,11 +26,11 @@ const ABOUT = {
     "My fascination with photography started in 2008 with a kids reel camera, and it has gotten better since then!",
     "I love to capture wildlife, nature, cityscapes & my husband :).",
   ],
-  /*gallery: [
+  gallery: [
     "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=500",
     "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500",
     "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=500",
-  ],*/
+  ],
 };
 
 
