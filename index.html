@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Usual Subjects</title>
+  <style>
+    @font-face { font-family:'Lora'; src:url('assets/fonts/lora-v23-latin-regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+    @font-face { font-family:'Lora'; src:url('assets/fonts/lora-v23-latin-italic.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:swap; }
+    @font-face { font-family:'Lora'; src:url('assets/fonts/lora-v23-latin-700.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+    @font-face { font-family:'Lora'; src:url('assets/fonts/lora-v23-latin-600.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
+    @font-face { font-family:'Inter'; src:url('assets/fonts/inter-v8-latin-regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+    @font-face { font-family:'Inter'; src:url('assets/fonts/inter-v8-latin-500.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
+    @font-face { font-family:'Inter'; src:url('assets/fonts/inter-v8-latin-600.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
+    @font-face { font-family:'Inter'; src:url('assets/fonts/inter-v8-latin-700.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+  </style>
+  <style>
+    :root {
+      --font-sans: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-serif: Lora, Times, serif;
+      --bg:        #f5f5f3;
+      --bg-card:   #eceae5;
+      --text:      #1a1a1a;
+      --text-mid:  #6b6b6b;
+      --text-soft: #9e9e9e;
+      --border:    #e2e1dd;
+      --gap:       34px;
+      --header-h:  112px;
+      --ease:      0.26s cubic-bezier(.4,0,.2,1);
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { font-size:62.5%; -webkit-font-smoothing:antialiased; }
+    body { font-family:var(--font-sans); font-weight:400; background:var(--bg); color:var(--text); font-size:1.5rem; line-height:1.6; }
+    a { color:inherit; text-decoration:none; }
+    img { display:block; width:100%; }
+
+    /* ── HEADER ── */
+    .site-head {
+      position:sticky; top:0; z-index:300;
+      background:rgba(245,245,243,0.93);
+      backdrop-filter:blur(12px);
+    }
+    .head-inner {
+      max-width:1800px; margin:0 auto;
+      padding:20px max(4vw,20px) 16px;
+    }
+
+    /* top row — logo only, always dead-center */
+    .head-top { text-align:center; }
+
+    /* bottom row — left icons + subscribe / theme nav */
+    .head-bottom {
+      display:flex; align-items:center; justify-content:space-between;
+      gap:1.6rem; margin-top:14px;
+    }
+
+    /* left icons */
+    .head-left { display:flex; align-items:center; gap:1.6rem; }
+    .icon-btn {
+      background:none; border:none; cursor:pointer;
+      color:var(--text-mid); padding:4px;
+      display:flex; align-items:center;
+      transition:color var(--ease);
+    }
+    .icon-btn:hover { color:var(--text); }
+    .icon-btn svg { width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+
+    .subscribe-pill {
+      background:var(--text); color:#fff;
+      border:none; border-radius:999px;
+      padding:.7rem 1.7rem;
+      font-family:var(--font-sans); font-size:1.15rem; font-weight:600;
+      letter-spacing:0.02em; white-space:nowrap;
+      cursor:pointer; transition:opacity var(--ease);
+    }
+    .subscribe-pill:hover { opacity:.8; }
+
+    /* center logo */
+    .site-logo {
+      font-family:var(--font-serif);
+      font-size:4.0rem; font-weight:600;
+      letter-spacing:-0.02em;
+      color:var(--text);
+    }
+
+    /* right theme nav */
+    .head-right { display:flex; align-items:center; justify-content:flex-end; gap:2.4rem; }
+    .theme-link {
+      font-size:0.9rem; font-weight:600;
+      letter-spacing:0.05em; text-transform:uppercase;
+      color:var(--text-soft);
+      transition:color var(--ease);
+      padding-bottom:2px;
+      border-bottom:2px solid transparent;
+      white-space:nowrap;
+    }
+    .theme-link:hover { color:var(--text-mid); }
+    .theme-link.active { color:var(--text); border-bottom-color:var(--text); }
+
+    /* burger (mobile) */
+    .gh-burger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+    .gh-burger span { display:block; width:20px; height:1.5px; background:var(--text); transition:transform var(--ease), opacity var(--ease); }
+
+    /* mobile menu */
+    .mobile-menu {
+      display:none; position:fixed; top:var(--header-h); left:0; right:0;
+      background:var(--bg); border-bottom:1px solid var(--border);
+      padding:1.6rem max(4vw,20px); z-index:299;
+      flex-direction:column; gap:1.2rem;
+    }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu-links { display:flex; flex-wrap:wrap; gap:1.2rem 2.4rem; }
+    .mobile-menu-links a { font-size:1.0125rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:var(--text-mid); }
+    .mobile-menu-links a.active { color:var(--text); }
+
+    /* ── SEARCH OVERLAY ── */
+    .search-overlay {
+      position:fixed; inset:0; z-index:500;
+      background:rgba(245,245,243,0.15);
+      backdrop-filter:blur(18px);
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:flex-start;
+      padding-top:calc(var(--header-h) + 64px);
+      opacity:0; pointer-events:none;
+      transition:opacity 0.25s ease;
+    }
+    .search-overlay.open { opacity:1; pointer-events:all; }
+    .search-box {
+      width:min(660px,88vw);
+      background:#fff;
+      border-radius:14px;
+      box-shadow:0 8px 40px rgba(0,0,0,0.12);
+      display:flex; align-items:center; gap:1.2rem;
+      padding:1.6rem 2rem;
+    }
+    .search-box svg { width:20px; height:20px; flex-shrink:0; stroke:var(--text-mid); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+    .search-input {
+      flex:1; border:none; background:none; outline:none;
+      font-size:1.8rem; font-family:var(--font-sans);
+      color:var(--text);
+    }
+    .search-input::placeholder { color:var(--text-soft); }
+    .search-close {
+      background:none; border:none; cursor:pointer;
+      font-size:2rem; color:var(--text-soft);
+      line-height:1; transition:color var(--ease);
+    }
+    .search-close:hover { color:var(--text); }
+    .search-results { margin-top:1.6rem; width:min(660px,88vw); }
+    .search-result-item {
+      background:#fff; border-radius:8px; padding:1.2rem 1.6rem;
+      margin-bottom:0.8rem; cursor:pointer;
+      transition:background var(--ease);
+      display:flex; align-items:center; gap:1.2rem;
+    }
+    .search-result-item:hover { background:#f0eeea; }
+    .search-result-img { width:48px; height:36px; object-fit:cover; border-radius:3px; flex-shrink:0; }
+    .search-result-title { font-family:var(--font-serif); font-size:1.4rem; font-weight:700; }
+    .search-result-meta { font-size:1.15rem; font-weight:500; color:var(--text-soft); margin-top:.2rem; }
+    .search-no-results { text-align:center; color:var(--text-soft); font-size:1.4rem; padding:2rem; }
+
+    /* ── FEED ── */
+    .site-main { padding:48px max(4vw,20px) 6rem; }
+    .feed-wrap { max-width:1600px; margin:0 auto; }
+    .post-feed {
+      position:relative;
+      opacity:0; transition:opacity 0.4s ease;
+    }
+    .post-feed.loaded { opacity:1; }
+
+    .post-card {
+      position:absolute; top:0; left:0;
+      cursor:pointer;
+      overflow:hidden;
+      background:var(--bg-card);
+      transition:transform 0.35s cubic-bezier(.4,0,.2,1);
+      /* NO border-radius */
+    }
+
+    .card-img-wrap { overflow:hidden; position:relative; }
+    .card-img {
+      width:100%; display:block;
+      transition:transform 0.55s cubic-bezier(.4,0,.2,1);
+      object-fit:cover;
+    }
+    .post-card:hover .card-img { transform:scale(1.04); }
+
+    .card-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,0.62) 0%, transparent 52%);
+      opacity:0; transition:opacity var(--ease);
+      display:flex; align-items:flex-end; padding:1.6rem;
+    }
+    .post-card:hover .card-overlay { opacity:1; }
+    .card-overlay-title {
+      font-family:var(--font-serif); font-size:1.4rem; font-weight:700;
+      color:#fff; line-height:1.25;
+    }
+    .card-overlay-theme {
+      font-size:1rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+      color:rgba(255,255,255,0.5); margin-top:.25rem;
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      position:fixed; inset:0; z-index:1000;
+      background:rgba(245,245,243,0.78);   /* semi-transparent WHITE */
+      backdrop-filter:blur(6px);
+      display:flex; align-items:center; justify-content:center;
+      opacity:0; pointer-events:none;
+      transition:opacity 0.3s ease;
+    }
+    .lightbox.open { opacity:1; pointer-events:all; }
+    .lb-inner {
+      display:flex; flex-direction:column; align-items:center;
+      max-width:min(90vw,1100px); max-height:96vh;
+      transform:translateY(14px); transition:transform 0.3s ease;
+    }
+    .lightbox.open .lb-inner { transform:translateY(0); }
+    .lb-img { max-width:100%; max-height:78vh; object-fit:contain; }
+    .lb-caption { margin-top:1.8rem; text-align:center; max-width:600px; }
+    .lb-caption h2 { font-family:var(--font-serif); font-size:1.8rem; font-weight:700; line-height:1.3; color:var(--text); }
+    .lb-caption p { font-family:var(--font-serif); font-style:italic; font-weight:400; font-size:1.4rem; color:var(--text-mid); margin-top:.7rem; line-height:1.65; }
+    .lb-meta { font-family:var(--font-sans); font-weight:500; font-size:1.1rem; letter-spacing:0.07em; text-transform:uppercase; color:var(--text-soft); margin-top:1rem; }
+    .lb-close {
+      position:fixed; top:2rem; right:2.4rem;
+      background:none; border:none; color:var(--text); font-size:2.4rem;
+      cursor:pointer; opacity:0.45; transition:opacity var(--ease); line-height:1;
+    }
+    .lb-close:hover { opacity:1; }
+    .lb-nav {
+      position:fixed; top:50%; transform:translateY(-50%);
+      background:none; border:none; color:var(--text);
+      font-size:3.4rem; cursor:pointer; opacity:0.3;
+      transition:opacity var(--ease); padding:1.2rem;
+    }
+    .lb-nav:hover { opacity:0.8; }
+    .lb-nav.prev { left:.6rem; }
+    .lb-nav.next { right:.6rem; }
+
+    /* ── ABOUT ── */
+    .about-overlay {
+      position:fixed; inset:0; z-index:700;
+      background:var(--bg);
+      opacity:0; pointer-events:none;
+      transform:translateY(10px);
+      transition:opacity 0.3s ease, transform 0.3s ease;
+      overflow-y:auto;
+    }
+    .about-overlay.open { opacity:1; pointer-events:all; transform:translateY(0); }
+    .about-inner {
+      max-width:760px; margin:0 auto;
+      padding:9rem max(4vw,20px) 8rem;
+      text-align:center;
+    }
+    .about-portrait {
+      width:180px; height:180px; border-radius:50%;
+      object-fit:cover; margin:0 auto 2.4rem;
+    }
+    .about-heading { font-family:var(--font-serif); font-size:2.6rem; font-weight:700; color:var(--text); margin-bottom:1.6rem; }
+    .about-text p { font-size:1.5rem; color:var(--text-mid); line-height:1.75; margin-bottom:1.2rem; max-width:560px; margin-left:auto; margin-right:auto; }
+    .about-gallery {
+      display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.2rem;
+      margin-top:3.6rem;
+    }
+    .about-gallery img { width:100%; aspect-ratio:1; object-fit:cover; }
+    .about-close {
+      position:fixed; top:2rem; right:2.4rem;
+      background:none; border:none; color:var(--text); font-size:2.4rem;
+      cursor:pointer; opacity:0.45; transition:opacity var(--ease); line-height:1;
+    }
+    .about-close:hover { opacity:1; }
+    @media (max-width:600px) {
+      .about-gallery { grid-template-columns:1fr 1fr; }
+    }
+
+    /* ── FOOTER ── */
+    .site-foot {
+      border-top:1px solid var(--border);
+      padding:3.2rem max(4vw,20px) 4rem;
+    }
+    .foot-inner {
+      max-width:1600px; margin:0 auto;
+      display:flex; flex-direction:column; align-items:center; gap:1.6rem;
+    }
+    .foot-social { display:flex; gap:2rem; align-items:center; }
+    .foot-social a {
+      display:flex; align-items:center; justify-content:center;
+      width:38px; height:38px;
+      color:var(--text-soft);
+      transition:color var(--ease);
+    }
+    .foot-social a:hover { color:var(--text); }
+    .foot-social svg { width:20px; height:20px; fill:currentColor; }
+    .foot-links { display:flex; align-items:center; gap:.8rem; }
+    .foot-links a { font-size:1.25rem; color:var(--text-soft); transition:color var(--ease); }
+    .foot-links a:hover { color:var(--text); }
+    .foot-links .dot { color:var(--border); font-size:1.2rem; }
+    .foot-copy { font-size:1.15rem; font-weight:500; color:var(--text-soft); }
+
+    /* ── EMPTY ── */
+    .empty-state { text-align:center; padding:8rem 2rem; color:var(--text-soft); }
+    .empty-state h2 { font-family:var(--font-serif); font-size:2.4rem; font-weight:700; color:var(--text); margin-bottom:1rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width:720px)  { .post-feed { --gap:22px; } }
+    @media (max-width:900px) {
+      .head-right { display:none; }
+      .gh-burger { display:flex; }
+    }
+    @media (max-width:640px) {
+      .lb-nav { display:none; }
+      .site-logo { font-size:3.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-box">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input class="search-input" id="search-input" type="text" placeholder="Search posts, tags and themes…" autocomplete="off">
+    <button class="search-close" id="search-close">&#x2715;</button>
+  </div>
+  <div class="search-results" id="search-results"></div>
+</div>
+
+<!-- HEADER -->
+<header class="site-head">
+  <div class="head-inner">
+
+    <!-- TOP: logo, dead-center, nothing competing beside it -->
+    <div class="head-top">
+      <a class="site-logo" href="#" id="site-logo" onclick="setTheme(null);return false;">The Usual Subjects</a>
+    </div>
+
+    <!-- BOTTOM: left icons + subscribe pill, theme nav on the right -->
+    <div class="head-bottom">
+      <div class="head-left">
+        <button class="icon-btn" id="search-btn" title="Search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <button class="icon-btn" id="about-btn" title="About">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="10.5" x2="12" y2="16"/><circle cx="12" cy="7.4" r=".9" fill="currentColor" stroke="none"/></svg>
+        </button>
+        <button class="subscribe-pill" id="subscribe-btn">Subscribe</button>
+      </div>
+
+      <nav class="head-right" id="theme-nav">
+        <!-- injected -->
+      </nav>
+
+      <button class="gh-burger" id="gh-burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-links" id="mm-links"></div>
+</div>
+
+<!-- ABOUT -->
+<div class="about-overlay" id="about-overlay">
+  <button class="about-close" id="about-close">&#x2715;</button>
+  <div class="about-inner">
+    <img class="about-portrait" id="about-portrait" src="" alt="">
+    <h2 class="about-heading" id="about-heading"></h2>
+    <div class="about-text" id="about-text"></div>
+    <div class="about-gallery" id="about-gallery"></div>
+  </div>
+</div>
+
+<!-- FEED -->
+<main class="site-main">
+  <div class="feed-wrap">
+    <div class="post-feed" id="post-feed"></div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-foot">
+  <div class="foot-inner">
+    <div class="foot-social" id="foot-social">
+      <!-- injected -->
+    </div>
+    <div class="foot-links">
+      <a href="#" id="contact-link" style="display:none">Contact</a>
+    </div>
+    <span class="foot-copy" id="foot-copy"></span>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lb-close">&#x2715;</button>
+  <button class="lb-nav prev" id="lb-prev">&#8249;</button>
+  <div class="lb-inner">
+    <img class="lb-img" id="lb-img" src="" alt="">
+    <div class="lb-caption">
+      <h2 id="lb-title"></h2>
+      <p id="lb-caption-text"></p>
+      <p class="lb-meta" id="lb-meta"></p>
+    </div>
+  </div>
+  <button class="lb-nav next" id="lb-next">&#8250;</button>
+</div>
+
+<script src="posts.js"></script>
+<script>
+// ── STATE ─────────────────────────────────────────────────
+let activeTheme = null;
+let visiblePosts = [];
+let lbIdx = 0;
+
+// ── BOOT ──────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  document.title = SITE_CONFIG.title;
+  document.getElementById('site-logo').textContent = SITE_CONFIG.title;
+  document.getElementById('foot-copy').innerHTML = '&copy; ' + new Date().getFullYear() + ' ' + SITE_CONFIG.title;
+
+  // Footer social icons
+  const social = document.getElementById('foot-social');
+  const instaHandles = Array.isArray(SITE_CONFIG.instagram) ? SITE_CONFIG.instagram : [SITE_CONFIG.instagram];
+  instaHandles.filter(Boolean).forEach(handle => {
+    social.innerHTML += `<a href="https://instagram.com/${handle}" target="_blank" title="@${handle}">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>`;
+  });
+  if (SITE_CONFIG.twitter) {
+    social.innerHTML += `<a href="https://x.com/${SITE_CONFIG.twitter}" target="_blank" title="X / Twitter">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>`;
+  }
+  if (SITE_CONFIG.facebook) {
+    social.innerHTML += `<a href="https://facebook.com/${SITE_CONFIG.facebook}" target="_blank" title="Facebook">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>`;
+  }
+  if (SITE_CONFIG.wordpress) {
+    social.innerHTML += `<a href="${SITE_CONFIG.wordpress}" target="_blank" title="WordPress">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.469 6.825c.84 1.537 1.318 3.3 1.318 5.175 0 3.979-2.156 7.456-5.363 9.325l3.295-9.527c.615-1.54.82-2.771.82-3.864 0-.405-.026-.78-.07-1.11m-7.981.105c.647-.03 1.232-.105 1.232-.105.582-.075.514-.93-.067-.899 0 0-1.755.135-2.88.135-1.064 0-2.85-.15-2.85-.15-.585-.03-.661.855-.075.885 0 0 .54.061 1.125.09l1.68 4.605-2.37 7.08L5.354 6.9c.649-.03 1.234-.1 1.234-.1.585-.075.516-.93-.065-.896 0 0-1.746.138-2.874.138-.2 0-.438-.008-.69-.015C4.911 3.15 8.235 1.215 12 1.215c2.809 0 5.365 1.072 7.286 2.833-.046-.003-.091-.009-.141-.009-1.06 0-1.812.923-1.812 1.914 0 .89.513 1.643 1.06 2.531.411.72.89 1.643.89 2.977 0 .915-.354 1.994-.821 3.479l-1.075 3.585-3.9-11.61.001.014zM12 22.784c-1.059 0-2.081-.153-3.048-.437l3.237-9.406 3.315 9.087c.024.053.05.101.078.149-1.12.393-2.325.609-3.582.609M1.211 12c0-1.564.336-3.05.935-4.39L7.29 21.709C3.694 19.96 1.212 16.271 1.211 12M12 0C5.385 0 0 5.385 0 12s5.385 12 12 12 12-5.385 12-12S18.615 0 12 0"/></svg>
+    </a>`;
+  }
+
+  // Footer contact link
+  if (SITE_CONFIG.email) {
+    document.getElementById('contact-link').href = 'mailto:' + SITE_CONFIG.email;
+    document.getElementById('contact-link').style.display = '';
+  }
+
+  // About section
+  document.getElementById('about-portrait').src = ABOUT.photo;
+  document.getElementById('about-heading').textContent = ABOUT.heading;
+  document.getElementById('about-text').innerHTML = ABOUT.paragraphs.map(p => `<p>${esc(p)}</p>`).join('');
+  document.getElementById('about-gallery').innerHTML = ABOUT.gallery.map(src =>
+    `<img src="${esc(src)}" alt="">`).join('');
+
+  buildThemeNav();
+  renderFeed(null);
+  bindEvents();
+  syncHeaderHeight();
+});
+
+// ── NAV ───────────────────────────────────────────────────
+function buildThemeNav() {
+  const nav = document.getElementById('theme-nav');
+  const mm = document.getElementById('mm-links');
+
+  THEMES.forEach(t => {
+    // desktop
+    const a = document.createElement('a');
+    a.className='theme-link'; a.href='#'; a.textContent=t.label; a.dataset.id=t.id;
+    a.addEventListener('click', e => { e.preventDefault(); setTheme(t.id); });
+    nav.appendChild(a);
+    // mobile
+    const am = document.createElement('a');
+    am.href='#'; am.textContent=t.label; am.dataset.id=t.id;
+    am.addEventListener('click', e => { e.preventDefault(); setTheme(t.id); closeMM(); });
+    mm.appendChild(am);
+  });
+}
+
+function setTheme(id) {
+  activeTheme = id;
+  // highlight desktop nav
+  document.querySelectorAll('#theme-nav .theme-link').forEach(a =>
+    a.classList.toggle('active', a.dataset.id === (id||''))
+  );
+  // highlight mobile
+  document.querySelectorAll('#mm-links a').forEach(a =>
+    a.classList.toggle('active', a.dataset.id === (id||''))
+  );
+  renderFeed(id);
+  window.scrollTo({ top:0, behavior:'smooth' });
+}
+
+// ── RENDER ────────────────────────────────────────────────
+function renderFeed(themeId) {
+  const feed = document.getElementById('post-feed');
+  feed.classList.remove('loaded');
+  feed.style.height = '';
+  feed.innerHTML = '';
+
+  // Oldest first, newest last — so a newly added photo lands below the older ones on the page.
+  visiblePosts = (themeId ? POSTS.filter(p => p.theme === themeId) : [...POSTS]).reverse();
+
+  if (!visiblePosts.length) {
+    feed.innerHTML = '<div class="empty-state"><h2>No photos yet</h2><p>Add posts in posts.js</p></div>';
+    requestAnimationFrame(() => feed.classList.add('loaded'));
+    return;
+  }
+
+  const themeMap = {};
+  THEMES.forEach(t => themeMap[t.id] = t.label);
+
+  visiblePosts.forEach((post, idx) => {
+    const card = document.createElement('article');
+    card.className = 'post-card';
+    const themeName = themeMap[post.theme] || '';
+    card.innerHTML = `
+      <div class="card-img-wrap">
+        <img class="card-img" src="${esc(post.image)}" alt="${esc(post.title)}"
+             loading="${idx < 8 ? 'eager' : 'lazy'}" decoding="async">
+        <div class="card-overlay">
+          <div>
+            <div class="card-overlay-title">${esc(post.title)}</div>
+            ${themeName ? `<div class="card-overlay-theme">${esc(themeName)}</div>` : ''}
+          </div>
+        </div>
+      </div>`;
+    card.addEventListener('click', () => openLb(idx));
+    feed.appendChild(card);
+  });
+
+  // Re-run layout as each image's real dimensions arrive
+  feed.querySelectorAll('img.card-img').forEach(img => {
+    img.addEventListener('load', scheduleRelayout);
+  });
+
+  relayout();
+  requestAnimationFrame(() => feed.classList.add('loaded'));
+}
+
+// ── MASONRY LAYOUT ────────────────────────────────────────
+// Deterministic shortest-column placement, in document order.
+// Replaces CSS column-balance, which can reflow items into
+// unpredictable columns as content height changes.
+function getCols() {
+  const w = window.innerWidth;
+  if (w <= 720) return 2;
+  if (w <= 1100) return 3;
+  return 4;
+}
+
+function relayout() {
+  const feed = document.getElementById('post-feed');
+  const cards = Array.from(feed.querySelectorAll('.post-card'));
+  if (!cards.length) { feed.style.height = ''; return; }
+
+  const gapPx = parseFloat(getComputedStyle(feed).getPropertyValue('--gap')) || 24;
+  const cols = getCols();
+  const colWidth = (feed.clientWidth - gapPx * (cols - 1)) / cols;
+  const colHeights = new Array(cols).fill(0);
+
+  cards.forEach(card => {
+    card.style.width = colWidth + 'px';
+    let col = 0;
+    for (let i = 1; i < cols; i++) { if (colHeights[i] < colHeights[col]) col = i; }
+    const x = col * (colWidth + gapPx);
+    const y = colHeights[col];
+    card.style.transform = `translate(${x}px, ${y}px)`;
+    colHeights[col] = y + card.offsetHeight + gapPx;
+  });
+
+  feed.style.height = (Math.max.apply(null, colHeights) - gapPx) + 'px';
+}
+
+let relayoutScheduled = false;
+function scheduleRelayout() {
+  if (relayoutScheduled) return;
+  relayoutScheduled = true;
+  requestAnimationFrame(() => { relayoutScheduled = false; relayout(); });
+}
+
+// Header is now two rows of variable height (logo + icons/nav), so its
+// height is measured rather than hardcoded, and re-measured on resize.
+function syncHeaderHeight() {
+  const h = document.querySelector('.site-head').offsetHeight;
+  document.documentElement.style.setProperty('--header-h', h + 'px');
+}
+
+// ── SEARCH ────────────────────────────────────────────────
+function openSearch() {
+  document.getElementById('search-overlay').classList.add('open');
+  document.getElementById('search-input').value = '';
+  document.getElementById('search-results').innerHTML = '';
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('search-input').focus(), 60);
+}
+function closeSearch() {
+  document.getElementById('search-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function doSearch(q) {
+  const res = document.getElementById('search-results');
+  q = q.trim().toLowerCase();
+  if (!q) { res.innerHTML=''; return; }
+
+  const themeMap = {};
+  THEMES.forEach(t => themeMap[t.id] = t.label);
+
+  const matches = POSTS.filter(p =>
+    (p.title||'').toLowerCase().includes(q) ||
+    (p.caption||'').toLowerCase().includes(q) ||
+    (themeMap[p.theme]||'').toLowerCase().includes(q)
+  ).slice(0, 8);
+
+  if (!matches.length) {
+    res.innerHTML = '<div class="search-no-results">No results found</div>';
+    return;
+  }
+
+  res.innerHTML = matches.map((p, i) => `
+    <div class="search-result-item" onclick="openLbById(${p.id}); closeSearch();">
+      <img class="search-result-img" src="${esc(p.image)}" alt="${esc(p.title)}" loading="lazy">
+      <div>
+        <div class="search-result-title">${esc(p.title)}</div>
+        <div class="search-result-meta">${themeMap[p.theme]||''}${p.date ? ' · '+fmtDate(p.date) : ''}</div>
+      </div>
+    </div>`).join('');
+}
+
+function openLbById(id) {
+  // show in current visiblePosts or switch to all
+  let idx = visiblePosts.findIndex(p => p.id === id);
+  if (idx === -1) { setTheme(null); idx = visiblePosts.findIndex(p => p.id === id); }
+  if (idx !== -1) openLb(idx);
+}
+
+// ── LIGHTBOX ──────────────────────────────────────────────
+function openLb(idx) {
+  lbIdx = idx; updateLb();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLb() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function shiftLb(dir) {
+  const n = lbIdx + dir;
+  if (n >= 0 && n < visiblePosts.length) { lbIdx = n; updateLb(); }
+}
+function updateLb() {
+  const p = visiblePosts[lbIdx];
+  const themeMap = {}; THEMES.forEach(t => themeMap[t.id] = t.label);
+  document.getElementById('lb-img').src = p.image;
+  document.getElementById('lb-img').alt = p.title;
+  document.getElementById('lb-title').textContent = p.title;
+  document.getElementById('lb-caption-text').textContent = p.caption || '';
+  const parts = [];
+  if (p.date) parts.push(fmtDate(p.date));
+  if (p.theme && themeMap[p.theme]) parts.push(themeMap[p.theme]);
+  document.getElementById('lb-meta').textContent = parts.join('  ·  ');
+  document.getElementById('lb-prev').style.visibility = lbIdx > 0 ? 'visible' : 'hidden';
+  document.getElementById('lb-next').style.visibility = lbIdx < visiblePosts.length-1 ? 'visible' : 'hidden';
+}
+
+// ── EVENTS ────────────────────────────────────────────────
+function bindEvents() {
+  // masonry relayout + header height resync on resize
+  window.addEventListener('resize', () => { scheduleRelayout(); syncHeaderHeight(); });
+
+  // search
+  document.getElementById('search-btn').addEventListener('click', openSearch);
+  document.getElementById('search-close').addEventListener('click', closeSearch);
+  document.getElementById('search-overlay').addEventListener('click', e => {
+    if (e.target === e.currentTarget) closeSearch();
+  });
+  document.getElementById('search-input').addEventListener('input', e => doSearch(e.target.value));
+
+  // subscribe (placeholder — wire up to your email tool later)
+  document.getElementById('subscribe-btn').addEventListener('click', () => {
+    alert('Subscribe feature coming soon!');
+  });
+
+  // about
+  document.getElementById('about-btn').addEventListener('click', openAbout);
+  document.getElementById('about-close').addEventListener('click', closeAbout);
+  document.getElementById('about-overlay').addEventListener('click', e => {
+    if (e.target === e.currentTarget) closeAbout();
+  });
+
+  // lightbox
+  document.getElementById('lb-close').addEventListener('click', closeLb);
+  document.getElementById('lb-prev').addEventListener('click', () => shiftLb(-1));
+  document.getElementById('lb-next').addEventListener('click', () => shiftLb(1));
+  document.getElementById('lightbox').addEventListener('click', e => {
+    if (e.target === e.currentTarget) closeLb();
+  });
+
+  // keyboard
+  document.addEventListener('keydown', e => {
+    if (document.getElementById('search-overlay').classList.contains('open')) {
+      if (e.key === 'Escape') closeSearch();
+      return;
+    }
+    if (document.getElementById('about-overlay').classList.contains('open')) {
+      if (e.key === 'Escape') closeAbout();
+      return;
+    }
+    if (document.getElementById('lightbox').classList.contains('open')) {
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') shiftLb(-1);
+      if (e.key === 'ArrowRight') shiftLb(1);
+    }
+  });
+
+  // burger
+  const burger = document.getElementById('gh-burger');
+  burger.addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('open');
+    const s = burger.querySelectorAll('span');
+    const open = document.getElementById('mobile-menu').classList.contains('open');
+    s[0].style.transform = open ? 'rotate(45deg) translate(5px,5px)' : '';
+    s[1].style.opacity   = open ? '0' : '';
+    s[2].style.transform = open ? 'rotate(-45deg) translate(5px,-5px)' : '';
+  });
+}
+
+function closeMM() {
+  document.getElementById('mobile-menu').classList.remove('open');
+  const s = document.getElementById('gh-burger').querySelectorAll('span');
+  s[0].style.transform = s[1].style.opacity = s[2].style.transform = '';
+}
+
+// ── ABOUT ─────────────────────────────────────────────────
+function openAbout() {
+  document.getElementById('about-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeAbout() {
+  document.getElementById('about-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── HELPERS ───────────────────────────────────────────────
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function fmtDate(s) { try { return new Date(s).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}); } catch { return s; } }
+</script>
+</body>
+</html>
