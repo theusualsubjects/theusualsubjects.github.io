@@ -6,13 +6,33 @@ const SITE_CONFIG = {
   title: "The Usual Subjects",
   tagline: "Photography",
   about: "Stories told through a lens.",
-  instagram: "angie.vish",
-  instagram: "the.usual.subjects",
-  wordpress: "https://thefierynavigator.wordpress.com",   // full URL, e.g. "https://yourname.wordpress.com"
+  instagram: ["the.usual.subjects", "angie.vish"],   // add one handle per icon, e.g. ["yourhandle", "yoursecondhandle"]
   twitter: "angievish",
   facebook: "",
-  email: "",
+  wordpress: "https://thefierynavigator.wordpress.com",   // full URL, e.g. "https://yourname.wordpress.com"
+  email: "anjali.vish11@gmail.com",
 };
+
+// ============================================================
+//  ABOUT — shown when someone clicks the (i) icon in the header
+//  Replace the photo URLs and text below with your own.
+// ============================================================
+
+const ABOUT = {
+  photo: "https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?w=400",
+  heading: "Hi, I'm Anjali Vishwakarma",
+  paragraphs: [
+    "I'm a hobbyist photographer. This site is a small, ongoing archive of the frames I've chosen to keep.",
+    "I picked up a camera in 2016 and haven't really put it down since.",
+  ],
+  gallery: [
+    "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=500",
+    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500",
+    "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=500",
+  ],
+};
+
+
 
 // ============================================================
 //  THEMES — add or rename as you like
