@@ -19,7 +19,7 @@ const SITE_CONFIG = {
 // ============================================================
 
 const ABOUT = {
-  photo: "https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?w=400",
+  photo: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781889863/copy_of_img_1476_bobtql.jpg",
   heading: "Hi, I'm Anjali Vishwakarma",
   paragraphs: [
     "I'm a hobbyist photographer. This site is a small, ongoing archive of the frames I've chosen to keep.",
