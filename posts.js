@@ -24,12 +24,13 @@ const ABOUT = {
   paragraphs: [
     "I'm a hobbyist photographer with a full time side gig. This site is a small, ongoing archive of the frames I've chosen to keep.",
     "My fascination with photography started in 2008 with a kids reel camera, and it has gotten better since then!",
-    "I love to capture wildlife, nature, cityscapes & my husband :).",
+    "I love to capture wildlife, nature, cityscapes & my husband :).", 
+    "Below are few recent snaps of my fav model!",
   ],
   gallery: [
-    "",
-    "",
-    "",
+    "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781973033/DSC_0722_opfm2t.jpg",
+    "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781973033/DSC_0484_h1tk6u.jpg",
+    "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781973034/DSC_0831_r9a0yp.jpg",
   ],
 };
 
