@@ -27,9 +27,9 @@ const ABOUT = {
     "I love to capture wildlife, nature, cityscapes & my husband :).",
   ],
   gallery: [
-    "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=500",
-    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500",
-    "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=500",
+    "",
+    "",
+    "",
   ],
 };
 
