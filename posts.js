@@ -146,23 +146,185 @@ const POSTS = [
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048192/IMG_0658_xktr67.heic",
     theme: "people",
   },
-    
-
   {
     id: 11,
-    title: "Buddha",
-    date: "2026-06-16",
-    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630389/DSC_0702_ynqeqa.jpg",
-    theme: "artefacts",
- 
+    title: "Himalayan Eagle",
+    date: "2022-01-05",
+    caption: "Uttarakhand",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782049747/copy_of_dsc_0584_unlg6u.jpg",
+    theme: "wildlife",
+  },
+  {
+    id: 12,
+    title: "Bowing Deer",
+    date: "2026-05-07",
+    caption: "Nara",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048193/DSC_0774_n8ngv3.heic",
+    theme: "wildlife",
+  },
+     {
+    id: 13,
+    title: "Osaka Castle",
+    date: "2026-05-08",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048187/DSC_0878_f1dpm4.jpg",
+    theme: "structures",
   },
 
   {
-    id: 12,
+    id: 14,
+    title: "Metro Model",
+    date: "2026-05-06",
+    caption: "Udit Pushkar",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048192/IMG_1243_jrs245.heic",
+    theme: "people",
+  },
+
+  {
+    id: 15,
+    title: "Serenity",
+    date: "2026-06-09",
+    caption: "Arishiyama Forest Trail",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048190/DSC_0702_dvtziq.jpg",
+    theme: "artefacts",
+  },
+
+  {
+    id: 16,
+    title: "Classic Taxi",
+    date: "2026-05-01",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048190/DSC_0462_1_nwbzst.jpg",
+    theme: "artefacts",
+  },
+
+  {
+    id: 17,
+    title: "Kyoto Night",
+    date: "2026-05-05",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048188/CB3B4CB3-B354-45A0-8400-BF710B974B3E_wihu9n.jpg",
+    theme: "city",
+  },
+
+  {
+    id: 18,
+    title: "Solitude",
+    date: "2026-05-09",
+    caption: "Osaka",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048188/0FCA1DA9-8EDB-4C28-BDCE-15485C8D8FE9_iyskew.jpg",
+    theme: "people",
+  },
+
+  {
+    id: 19,
+    title: "Khajurao",
+    date: "2022-11-15",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048187/DSC_0814_wjzyfp.jpg",
+    theme: "structures",
+  },
+
+  {
+    id: 20,
+    title: "Nara Daibutsu",
+    date: "2026-05-07",
+    caption: "The Great Buddha of Nara",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048187/DSC_0802_12.30.10_AM_tf7sr4.jpg",
+    theme: "artefacts",
+  },
+
+  {
+    id: 21,
+    title: "Parakeets",
+    date: "2022-11-15",
+    caption: "Khajurao",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048187/DSC_0805_bmlgzk.jpg",
+  },
+
+  
+
+  
+
+  {
+    id: 24,
+    title: "Tokyo Skyline",
+    date: "2026-04-30",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782049625/WhatsApp_Image_2026-06-21_at_01.41.22_eqvvoe.jpg",
+    theme: "city",
+  }, 
+
+ 
+
+  {
+    id: 25,
     title: "Fishing",
     date: "2026-06-16",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630386/DSC_0619_gtcpxa.jpg",
     theme: "people",
   },
+  {
+    id: 26,
+    title: "Sunset over Kutchh Lake",
+    date: "2022-11-19",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782049816/copy_of_dsc_0122_yis1iz.jpg",
+    theme: "nature",
+  },
 
+  {
+    id: 27,
+    title: "Khajurao",
+    date: "2022-11-15",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782049246/DSC_0754_vckwyl.jpg",
+    theme: "artefacts",
+  },
+
+  {
+    id: 28,
+    title: "Dance of the Flamingoes",
+    date: "2022-11-19",
+    caption: "Kutchh lake",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782049625/WhatsApp_Image_2026-06-21_at_19.15.01_s6jyux.jpg",
+    theme: "wildlife",
+  },
+
+  {
+    id: 29,
+    title: "Rampur",
+    date: "2021-12-23",
+    caption: "West Champaran, Bihar",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782050037/copy_of_whatsapp_image_2026-06-21_at_014122_1_e6hl38.jpg",
+    theme: "people",
+  },
+
+  {
+    id: 30,
+    title: "Sanchi Stupa",
+    date: "2022-11-18",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782050150/copy_of_dsc_0014_shcrzz.jpg",
+    theme: "structures",
+  },
+
+  {
+    id: 31,
+    title: "Crested Serpent Eagle",
+    date: "2022-11-15",
+    caption: "Gir National Park, Gujarat",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048635/DSC_0581_gjleyt.jpg",
+    theme: "wildlife",
+  },
+
+  {
+    id: 32,
+    title: "Red Wattled Lapwing",
+    date: "2022-11-15",
+    caption: "Gir National Park, Gujarat",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048635/DSC_0604_tfml1s.jpg",
+    theme: "wildlife",
+  },
+
+  {
+    id: 33,
+    title: "Salt Flats",
+    date: "2022-11-18",
+    caption: "Kutchh",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782050209/copy_of_dsc_0004_myxqap.jpg",
+    theme: "nature",
+  },
 ];
