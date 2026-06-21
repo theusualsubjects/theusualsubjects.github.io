@@ -257,11 +257,11 @@ const POSTS = [
     {
     id: 26,
     title: "Mt. Fuji",
-    date: "2026-05-02",
-      
+    date: "2026-05-02",  
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048188/IMG_0992_sfgysp.heic",
     theme: "nature",
   },
+    
   {
     id: 27,
     title: "Sunset over Kutchh Lake",
