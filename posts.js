@@ -62,7 +62,7 @@ const POSTS = [
 
   {
       
-    id: 1,
+    id: 2,
     title: "Mural in Tokyo Street",
     date: "2026-05-01",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048188/IMG_0790_b9ddfa.heic",
@@ -70,7 +70,7 @@ const POSTS = [
   },
 
   {
-    id: 2,
+    id: 1,
     title: "Tokyo Sky",
     date: "2026-05-02",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048192/F28D1F17-6B62-467A-8543-67F3A79DD9D7_2_xqbfqn.jpg",
