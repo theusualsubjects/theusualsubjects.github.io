@@ -20,7 +20,7 @@ const SITE_CONFIG = {
 
 const ABOUT = {
   photo: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048185/DSC_0111_czkgsx.jpg",
-  heading: "Hi, I'm Anjali Vishwakarma",
+  heading: "Hi, I'm Anjali",
   paragraphs: [
     "I'm a hobbyist photographer with a full time side gig. This site is a small, ongoing archive of the frames I've chosen to keep.",
     "My fascination with photography started in 2008 with a kids reel camera, and it has gotten better since then!",
