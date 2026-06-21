@@ -238,7 +238,22 @@ const POSTS = [
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048187/DSC_0805_bmlgzk.jpg",
   },
 
-
+{
+    id: 22,
+    title: "Dance of the Flamingoes",
+    date: "2022-11-19",
+    caption: "Kutchh lake",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782049625/WhatsApp_Image_2026-06-21_at_19.15.01_s6jyux.jpg",
+    theme: "wildlife",
+  },
+  {
+    id: 23,
+    title: "Mt. Fuji",
+    date: "2026-05-02",  
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048188/IMG_0992_sfgysp.heic",
+    theme: "nature",
+  },
+  
   {
     id: 24,
     title: "Tokyo Skyline",
@@ -254,16 +269,10 @@ const POSTS = [
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630386/DSC_0619_gtcpxa.jpg",
     theme: "people",
   },
-    {
-    id: 26,
-    title: "Mt. Fuji",
-    date: "2026-05-02",  
-    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048188/IMG_0992_sfgysp.heic",
-    theme: "nature",
-  },
+    
     
   {
-    id: 27,
+    id: 26,
     title: "Sunset over Kutchh Lake",
     date: "2022-11-19",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782049816/copy_of_dsc_0122_yis1iz.jpg",
@@ -271,25 +280,16 @@ const POSTS = [
   },
 
   {
-    id: 28,
+    id: 27,
     title: "Khajurao",
     date: "2022-11-15",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782049246/DSC_0754_vckwyl.jpg",
     theme: "artefacts",
   },
 
-  {
-    id: 29,
-    title: "Dance of the Flamingoes",
-    date: "2022-11-19",
-    caption: "Kutchh lake",
-    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782049625/WhatsApp_Image_2026-06-21_at_19.15.01_s6jyux.jpg",
-    theme: "wildlife",
-  },
-
   
   {
-    id: 30,
+    id: 28,
     title: "Sanchi Stupa",
     date: "2022-11-18",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782050150/copy_of_dsc_0014_shcrzz.jpg",
@@ -297,7 +297,7 @@ const POSTS = [
   },
 
   {
-    id: 31,
+    id: 29,
     title: "Crested Serpent Eagle",
     date: "2022-11-15",
     caption: "Gir National Park, Gujarat",
@@ -306,7 +306,7 @@ const POSTS = [
   },
 
   {
-    id: 32,
+    id: 30,
     title: "Red Wattled Lapwing",
     date: "2022-11-15",
     caption: "Gir National Park, Gujarat",
@@ -315,7 +315,7 @@ const POSTS = [
   },
 
   {
-    id: 33,
+    id: 31,
     title: "Salt Flats",
     date: "2022-11-18",
     caption: "Kutchh",
@@ -323,7 +323,7 @@ const POSTS = [
     theme: "nature",
   },
   {
-    id: 34,
+    id: 32,
     title: "Rampur",
     date: "2021-12-23",
     caption: "West Champaran, Bihar",
