@@ -61,85 +61,92 @@ const THEMES = [
 const POSTS = [
 
   {
+      
     id: 1,
-    title: "Demigod",
-    date: "2024-03-15",
-    caption: "Todaiji Temple, Nara",
-    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781631410/DSC_0807_tj93qs.jpg",
-    theme: "artefacts",
+    title: "Mural in Tokyo Street",
+    date: "2026-05-01",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048188/IMG_0790_b9ddfa.heic",
+    theme: "city",
   },
+
   {
     id: 2,
-    title: "Serenity",
-    date: "2024-02-28",
-    caption: "",
-    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781631410/DSC_0802_lh07p0.jpg",
-    theme: "artefacts",
+    title: "Tokyo Sky",
+    date: "2026-05-02",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048192/F28D1F17-6B62-467A-8543-67F3A79DD9D7_2_xqbfqn.jpg",
+    theme: "city",
   },
-    {
+
+  {
     id: 3,
-    title: "Mt. Fuji",
-    date: "2026-06-16",
-    caption: "",
-    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630278/DSC_0603_ky7urm.jpg",
-    theme: "nature",
+    title: "Kyoto Palace",
+    date: "2026-05-05",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048191/DSC_0721_niikjg.jpg",
+    theme: "structures",
   },
 
   {
     id: 4,
-    title: "The Taxi",
-    date: "2026-06-16",
-    caption: "",
-    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630259/DSC_0462_u9fwed.jpg",
+    title: "Right of Way",
+    date: "2026-05-03",
+    caption: "Tokyo Trains",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048193/F546E657-802E-4ECD-BE09-20354E81B706_awlqcd.jpg",
     theme: "city",
   },
 
   {
     id: 5,
-    title: "temple 3",
-    date: "2026-06-16",
-    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630388/DSC_0715_nh9ecc.jpg",
-    theme: "structures",
-  },
-    {
-    id: 6,
-    title: "deer",
-    date: "2026-06-16",
-    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781631410/DSC_0774_pkxtkl.jpg",
+    title: "The Queen",
+    date: "2022-11-20",
+    caption: "Gir National Park",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048185/DSC_0433_akpmxq.jpg",
     theme: "wildlife",
   },
 
   {
-    id: 7,
-    title: "car2",
-    date: "2026-06-16",
-    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781631411/WhatsApp_Image_2026-05-05_at_12.27.11_l1fevx.jpg",
+    id: 6,
+    title: "Kyoto City",
+    date: "2026-05-07",
+    caption: "View from Fushimi Inari Shrine",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048186/DSC_0751_12.30.08_AM_dc70eo.jpg",
     theme: "city",
   },
 
   {
-    id: 8,
-    title: "lady",
-    date: "2026-06-16",
-    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781631410/DSC_0841_whhdbu.jpg",
-    theme: "people",
+    id: 7,
+    title: "Crested Serpent Eagle",
+    date: "2022-11-20",
+    caption: "Gir National Park",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048635/DSC_0581_gjleyt.jpg",
+    theme: "wildlife",
   },
-  
+
+  {
+    id: 8,
+    title: "Hawa Mahal",
+    date: "2026-02-12",
+    caption: "Jaipur",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048194/12261CF2-47DD-4AD1-93AE-1BAF0A731475_ekmu5y.heic",
+    theme: "city",
+  },
+
   {
     id: 9,
-    title: "palace",
-    date: "2026-06-16",
-    caption: "with my boo",
-    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630388/DSC_0722_d5picc.jpg",
+    title: "Fushimi Inari Shrine",
+    date: "2026-05-07",
+    caption: "Kyoto, Japan",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048191/DSC_0748_tpwvys.jpg",
     theme: "structures",
   },
+
   {
     id: 10,
-    title: "Temple1",
-    date: "2026-06-16",
-    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630394/DSC_0748_wqmilk.jpg",
-    theme: "structures",
+    title: "Self",
+    date: "2026-04-30",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048192/IMG_0658_xktr67.heic",
+    theme: "people",
   },
+    
 
   {
     id: 11,
@@ -147,26 +154,11 @@ const POSTS = [
     date: "2026-06-16",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630389/DSC_0702_ynqeqa.jpg",
     theme: "artefacts",
+ 
   },
 
   {
     id: 12,
-    title: "osaka",
-    date: "2026-06-16",
-    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630389/DSC_0751_u8hq5k.jpg",
-    theme: "city",
-  },
-
-  {
-    id: 13,
-    title: "palace",
-    date: "2026-06-16",
-    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630388/DSC_0721_mmyyse.jpg",
-    theme: "structures",
-  },
-
-  {
-    id: 14,
     title: "Fishing",
     date: "2026-06-16",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630386/DSC_0619_gtcpxa.jpg",
