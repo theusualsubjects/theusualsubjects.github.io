@@ -238,9 +238,6 @@ const POSTS = [
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048187/DSC_0805_bmlgzk.jpg",
   },
 
-  
-
-  
 
   {
     id: 24,
@@ -249,18 +246,24 @@ const POSTS = [
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782049625/WhatsApp_Image_2026-06-21_at_01.41.22_eqvvoe.jpg",
     theme: "city",
   }, 
-
- 
-
   {
     id: 25,
     title: "Fishing",
-    date: "2026-06-16",
+    date: "2026-05-02",
+    caption: "Fuji Lake",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1781630386/DSC_0619_gtcpxa.jpg",
     theme: "people",
   },
-  {
+    {
     id: 26,
+    title: "Mt. Fuji",
+    date: "2026-05-02",
+      
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782048188/IMG_0992_sfgysp.heic",
+    theme: "nature",
+  },
+  {
+    id: 27,
     title: "Sunset over Kutchh Lake",
     date: "2022-11-19",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782049816/copy_of_dsc_0122_yis1iz.jpg",
@@ -268,7 +271,7 @@ const POSTS = [
   },
 
   {
-    id: 27,
+    id: 28,
     title: "Khajurao",
     date: "2022-11-15",
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782049246/DSC_0754_vckwyl.jpg",
@@ -276,7 +279,7 @@ const POSTS = [
   },
 
   {
-    id: 28,
+    id: 29,
     title: "Dance of the Flamingoes",
     date: "2022-11-19",
     caption: "Kutchh lake",
@@ -284,15 +287,7 @@ const POSTS = [
     theme: "wildlife",
   },
 
-  {
-    id: 29,
-    title: "Rampur",
-    date: "2021-12-23",
-    caption: "West Champaran, Bihar",
-    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782050037/copy_of_whatsapp_image_2026-06-21_at_014122_1_e6hl38.jpg",
-    theme: "people",
-  },
-
+  
   {
     id: 30,
     title: "Sanchi Stupa",
@@ -327,4 +322,13 @@ const POSTS = [
     image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782050209/copy_of_dsc_0004_myxqap.jpg",
     theme: "nature",
   },
+  {
+    id: 34,
+    title: "Rampur",
+    date: "2021-12-23",
+    caption: "West Champaran, Bihar",
+    image: "https://res.cloudinary.com/dhj34fvzi/image/upload/q_auto/f_auto/v1782050037/copy_of_whatsapp_image_2026-06-21_at_014122_1_e6hl38.jpg",
+    theme: "people",
+  },
+
 ];
