@@ -95,7 +95,7 @@ const POSTS = [
   },
 
   {
-    id: 5,
+    id: 8,
     title: "The Queen",
     date: "2022-11-20",
     caption: "Gir National Park",
@@ -122,7 +122,7 @@ const POSTS = [
   },
 
   {
-    id: 8,
+    id: 5,
     title: "Hawa Mahal",
     date: "2026-02-12",
     caption: "Jaipur",
